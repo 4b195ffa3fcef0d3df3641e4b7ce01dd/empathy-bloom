@@ -1,14 +1,9 @@
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../utils/translations';
 import Navbar from '../components/Navbar';
-import { createClient } from '@supabase/supabase-js';
 import { useState } from 'react';
 import { useToast } from '../components/ui/use-toast';
-
-const supabase = createClient(
-  'https://edcyubygldvargwwerca.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVkY3l1YnlnbGR2YXJnd3dlcmNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYzMTc2OTEsImV4cCI6MjA1MTg5MzY5MX0.yBUvwxAVp_cTczoJy0GYG6JWOswRM_9UoOClOmUSGlU'
-);
+import { supabase } from '../integrations/supabase/client';
 
 export default function Index() {
   const { language } = useLanguage();
