@@ -7,8 +7,7 @@ export const supabase = createClient(
     auth: {
       persistSession: false, // Disable session persistence
       detectSessionInUrl: false, // Disable auto-detection of auth tokens in URL
-      autoRefreshToken: false, // Disable auto-refresh of tokens
-      lockTab: false // Disable tab locking
+      autoRefreshToken: false // Disable auto-refresh of tokens
     }
   }
 );
