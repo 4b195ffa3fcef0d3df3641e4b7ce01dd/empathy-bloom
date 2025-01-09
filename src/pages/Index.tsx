@@ -13,7 +13,6 @@ export default function Index() {
   const t = translations[language];
 
   const handleJoin = () => {
-    // Temporary toast until membership functionality is implemented
     toast({
       title: "Coming Soon",
       description: "Membership registration will be available soon. Stay tuned!",
@@ -22,7 +21,6 @@ export default function Index() {
   };
 
   const handleSupport = () => {
-    // Temporary toast until donation functionality is implemented
     toast({
       title: "Coming Soon",
       description: "Donation options will be available soon. Thank you for your interest!",
@@ -31,60 +29,48 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/5 dark:from-gray-900 dark:via-primary-dark/5 dark:to-secondary-dark/5 text-text dark:text-text-light transition-colors">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-secondary/5 dark:from-gray-900 dark:via-primary-dark/5 dark:to-secondary-dark/5">
       <Navbar />
       <Hero />
       
-      {/* Mission Section */}
-      <section id="mission" className="py-20 px-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+      <section id="mission" className="py-20 px-6 bg-gradient-to-br from-primary/30 to-secondary/30 dark:from-primary-dark/10 dark:to-secondary-dark/10">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-dark to-secondary-dark bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-dark via-secondary-dark to-accent-dark bg-clip-text text-transparent">
             {t.mission.title}
           </h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">{t.mission.description}</p>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-text dark:text-text-light">
+            {t.mission.description}
+          </p>
         </div>
       </section>
 
-      {/* Vision Section */}
-      <section id="vision" className="py-20 px-6 bg-gradient-to-br from-secondary/20 to-primary/20 dark:from-secondary-dark/10 dark:to-primary-dark/10">
+      <section id="vision" className="py-20 px-6 bg-gradient-to-br from-accent/30 to-primary/30 dark:from-accent-dark/10 dark:to-primary-dark/10">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-dark to-secondary-dark bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-dark via-secondary-dark to-accent-dark bg-clip-text text-transparent">
             {t.vision.title}
           </h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto text-text dark:text-text-light">
             {t.vision.description}
           </p>
         </div>
       </section>
 
-      {/* Story Section */}
-      <section id="story" className="py-20 px-6 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-dark to-secondary-dark bg-clip-text text-transparent">
-            {t.story.title}
-          </h2>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto leading-relaxed">
-            {t.story.content}
-          </p>
-        </div>
-      </section>
-
+      <Journey />
       <Impact />
 
-      {/* Join Us Section */}
-      <section id="join" className="py-20 px-6 bg-gradient-to-br from-accent/30 to-primary/30 dark:from-accent-dark/10 dark:to-primary-dark/10">
+      <section id="join" className="py-20 px-6 bg-gradient-to-br from-secondary/30 to-accent/30 dark:from-secondary-dark/10 dark:to-accent-dark/10">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-dark to-secondary-dark bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-primary-dark via-secondary-dark to-accent-dark bg-clip-text text-transparent">
             {t.join.title}
           </h2>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-text dark:text-text-light">
             {t.join.description}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
               onClick={handleJoin}
-              className="bg-accent hover:bg-accent-dark text-text dark:text-text-light transform hover:scale-105 transition-all"
+              className="bg-gradient-to-r from-primary-dark to-secondary-dark hover:from-secondary-dark hover:to-primary-dark text-text-light transform hover:scale-105 transition-all"
             >
               {t.join.member}
             </Button>
@@ -92,7 +78,7 @@ export default function Index() {
               size="lg"
               variant="outline"
               onClick={handleSupport}
-              className="border-accent hover:bg-accent/20 transform hover:scale-105 transition-all"
+              className="border-2 border-primary-dark hover:bg-primary/20 dark:hover:bg-primary-dark/20 text-text dark:text-text-light transform hover:scale-105 transition-all"
             >
               {t.join.support}
             </Button>
