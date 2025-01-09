@@ -36,6 +36,9 @@ export const translations = {
       description: "Be part of creating a more inclusive tech industry. Whether you want to join, donate, or collaborate, your support makes a difference.",
       member: "Become a Member",
       support: "Support Our Work",
+      comingSoon: "Coming Soon",
+      comingSoonDesc: "Membership registration will be available soon. Stay tuned!",
+      supportComingSoonDesc: "Donation options will be available soon. Thank you for your interest!",
     },
     contact: {
       title: "Get in Touch",
@@ -85,6 +88,9 @@ export const translations = {
       description: "Faça parte da criação de uma indústria de tecnologia mais inclusiva. Seja para se juntar, doar ou colaborar, seu apoio faz a diferença.",
       member: "Torne-se Membro",
       support: "Apoie Nosso Trabalho",
+      comingSoon: "Em Breve",
+      comingSoonDesc: "O registro de membros estará disponível em breve. Fique ligado!",
+      supportComingSoonDesc: "As opções de doação estarão disponíveis em breve. Obrigado pelo seu interesse!",
     },
     contact: {
       title: "Entre em Contato",
@@ -134,6 +140,9 @@ export const translations = {
       description: "Sé parte de la creación de una industria tecnológica más inclusiva. Ya sea para unirte, donar o colaborar, tu apoyo hace la diferencia.",
       member: "Conviértete en Miembro",
       support: "Apoya Nuestro Trabajo",
+      comingSoon: "Próximamente",
+      comingSoonDesc: "El registro de miembros estará disponible pronto. ¡Mantente atento!",
+      supportComingSoonDesc: "Las opciones de donación estarán disponibles pronto. ¡Gracias por tu interés!",
     },
     contact: {
       title: "Contáctanos",

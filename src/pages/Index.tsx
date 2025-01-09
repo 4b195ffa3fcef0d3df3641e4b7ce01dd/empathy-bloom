@@ -14,16 +14,16 @@ export default function Index() {
 
   const handleJoin = () => {
     toast({
-      title: "Coming Soon",
-      description: "Membership registration will be available soon. Stay tuned!",
+      title: t.join.comingSoon,
+      description: t.join.comingSoonDesc,
       duration: 3000,
     });
   };
 
   const handleSupport = () => {
     toast({
-      title: "Coming Soon",
-      description: "Donation options will be available soon. Thank you for your interest!",
+      title: t.join.comingSoon,
+      description: t.join.supportComingSoonDesc,
       duration: 3000,
     });
   };
