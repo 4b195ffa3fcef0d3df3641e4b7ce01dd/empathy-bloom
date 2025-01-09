@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://4b195ffa3fcef0d3df3641e4b7ce01dd.github.io/empathy-bloom",
+  "homepage": "https://4b195ffa3fcef0d3df3641e4b7ce01dd.github.io/empathy-bloom/",
   "scripts": {
     "deploy": "npm run build && gh-pages -d dist",
     "dev": "vite",
