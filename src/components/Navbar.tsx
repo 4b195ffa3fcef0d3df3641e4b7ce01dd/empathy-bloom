@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { translations } from '../utils/translations'; // Add this import
 import { Globe, Menu, Moon, Sun, X } from 'lucide-react';
 import {
   DropdownMenu,
