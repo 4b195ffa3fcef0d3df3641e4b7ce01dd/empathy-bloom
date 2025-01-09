@@ -21,34 +21,42 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navItems = [
-    { href: '#home', label: 'Home' },
-    { href: '#about', label: 'About Us' },
-    { href: '#mission', label: 'Our Mission' },
-    { href: '#vision', label: 'Our Vision' },
-    { href: '#story', label: 'Our Story' },
-    { href: '#impact', label: 'Impact' },
-    { href: '#join', label: 'Join Us' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#home', label: 'nav.home' },
+    { href: '#about', label: 'nav.about' },
+    { href: '#mission', label: 'nav.mission' },
+    { href: '#vision', label: 'nav.vision' },
+    { href: '#story', label: 'nav.story' },
+    { href: '#impact', label: 'nav.impact' },
+    { href: '#join', label: 'nav.join' },
+    { href: '#contact', label: 'nav.contact' },
   ];
 
+  const handleNavClick = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setIsOpen(false);
+    }
+  };
+
   return (
-    <nav className="fixed w-full bg-background/80 dark:bg-background-dark/80 backdrop-blur-lg z-50 transition-all duration-300 shadow-sm">
+    <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg z-50 transition-all duration-300 shadow-sm border-b border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold bg-gradient-to-r from-primary-dark to-secondary-dark bg-clip-text text-transparent">
+          <a href="#" className="text-2xl font-bold bg-gradient-to-r from-primary-dark to-secondary-dark bg-clip-text text-transparent whitespace-nowrap">
             ASD.org
           </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.href}
-                href={item.href}
-                className="text-sm hover:text-primary-dark transition-colors"
+                onClick={() => handleNavClick(item.href)}
+                className="text-sm hover:text-primary-dark transition-colors whitespace-nowrap px-2"
               >
-                {item.label}
-              </a>
+                {translations[language][item.label]}
+              </button>
             ))}
           </div>
 
@@ -57,15 +65,15 @@ export default function Navbar() {
               <DropdownMenuTrigger className="p-2 rounded-full hover:bg-primary/20 dark:hover:bg-primary-dark/20 transition-colors">
                 <Globe className="w-5 h-5" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => setLanguage('en')}>
-                  English
+                  🇺🇸 English
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setLanguage('pt-BR')}>
-                  Português
+                  🇧🇷 Português
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setLanguage('es')}>
-                  Español
+                  🇪🇸 Español
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -96,14 +104,13 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden py-4 space-y-2 animate-fade-in">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.href}
-                href={item.href}
-                className="block py-2 text-sm hover:text-primary-dark transition-colors"
-                onClick={toggleMenu}
+                onClick={() => handleNavClick(item.href)}
+                className="block w-full text-left py-2 px-4 text-sm hover:bg-primary/20 dark:hover:bg-primary-dark/20 transition-colors rounded-lg"
               >
-                {item.label}
-              </a>
+                {translations[language][item.label]}
+              </button>
             ))}
           </div>
         )}
