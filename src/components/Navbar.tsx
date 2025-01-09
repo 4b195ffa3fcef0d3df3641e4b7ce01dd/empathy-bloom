@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../utils/translations'; // Add this import
+import { translations } from '../utils/translations';
 import { Globe, Menu, Moon, Sun, X } from 'lucide-react';
 import {
   DropdownMenu,
@@ -41,20 +41,19 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg z-50 transition-all duration-300 shadow-sm border-b border-gray-200 dark:border-gray-800">
+    <nav className="fixed w-full bg-primary/90 dark:bg-primary-dark/90 backdrop-blur-lg z-50 transition-all duration-300 border-b-2 border-accent dark:border-accent-dark shadow-lg">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-2xl font-bold bg-gradient-to-r from-primary-dark to-secondary-dark bg-clip-text text-transparent whitespace-nowrap">
+          <a href="#" className="text-2xl font-bold bg-gradient-to-r from-secondary-dark to-accent-dark bg-clip-text text-transparent whitespace-nowrap border-b-2 border-transparent hover:border-accent-dark transition-all">
             ASD.org
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="text-sm hover:text-primary-dark transition-colors whitespace-nowrap px-2"
+                className="text-sm text-text dark:text-text-light hover:text-accent-dark dark:hover:text-accent transition-colors whitespace-nowrap px-2 py-1 border-b-2 border-transparent hover:border-accent-dark dark:hover:border-accent"
               >
                 {translations[language][item.label]}
               </button>
@@ -63,17 +62,17 @@ export default function Navbar() {
 
           <div className="flex items-center space-x-4">
             <DropdownMenu>
-              <DropdownMenuTrigger className="p-2 rounded-full hover:bg-primary/20 dark:hover:bg-primary-dark/20 transition-colors">
+              <DropdownMenuTrigger className="p-2 rounded-lg hover:bg-secondary/80 dark:hover:bg-secondary-dark/80 transition-colors border-2 border-accent dark:border-accent-dark">
                 <Globe className="w-5 h-5" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={() => setLanguage('en')}>
+              <DropdownMenuContent align="end" className="bg-primary dark:bg-primary-dark border-2 border-accent dark:border-accent-dark">
+                <DropdownMenuItem onClick={() => setLanguage('en')} className="hover:bg-secondary/80 dark:hover:bg-secondary-dark/80">
                   🇺🇸 English
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('pt-BR')}>
+                <DropdownMenuItem onClick={() => setLanguage('pt-BR')} className="hover:bg-secondary/80 dark:hover:bg-secondary-dark/80">
                   🇧🇷 Português
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('es')}>
+                <DropdownMenuItem onClick={() => setLanguage('es')} className="hover:bg-secondary/80 dark:hover:bg-secondary-dark/80">
                   🇪🇸 Español
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -81,7 +80,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-primary/20 dark:hover:bg-primary-dark/20 transition-colors"
+              className="p-2 rounded-lg hover:bg-secondary/80 dark:hover:bg-secondary-dark/80 transition-colors border-2 border-accent dark:border-accent-dark"
               aria-label="Toggle theme"
             >
               {isDark ? (
@@ -91,24 +90,22 @@ export default function Navbar() {
               )}
             </button>
 
-            {/* Mobile menu button */}
             <button
               onClick={toggleMenu}
-              className="md:hidden p-2 rounded-full hover:bg-primary/20 dark:hover:bg-primary-dark/20 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-secondary/80 dark:hover:bg-secondary-dark/80 transition-colors border-2 border-accent dark:border-accent-dark"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 space-y-2 animate-fade-in">
+          <div className="md:hidden py-4 space-y-2 animate-fade-in bg-primary dark:bg-primary-dark rounded-lg mt-4 border-2 border-accent dark:border-accent-dark">
             {navItems.map((item) => (
               <button
                 key={item.href}
                 onClick={() => handleNavClick(item.href)}
-                className="block w-full text-left py-2 px-4 text-sm hover:bg-primary/20 dark:hover:bg-primary-dark/20 transition-colors rounded-lg"
+                className="block w-full text-left py-2 px-4 text-sm hover:bg-secondary/80 dark:hover:bg-secondary-dark/80 transition-colors rounded-lg text-text dark:text-text-light"
               >
                 {translations[language][item.label]}
               </button>
