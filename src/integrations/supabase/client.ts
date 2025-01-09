@@ -1,14 +1,15 @@
 import { createClient } from '@supabase/supabase-js';
 
-export const supabase = createClient(
-  'https://anmkrrboofzijanebbla.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFubWtycmJvb2Z6aWphbmViYmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYzMTg2NDgsImV4cCI6MjA1MTg5NDY0OH0.hory8ODIVjyaG70_Exhu31UUML3vuLPDUO-QcDIZPfQ',
-  {
-    auth: {
-      persistSession: false,
-      detectSessionInUrl: false,
-      autoRefreshToken: false,
-      storage: undefined // Disable storage to prevent LockManager errors
+const supabaseUrl = 'https://anmkrrboofzijanebbla.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFubWtycmJvb2Z6aWphbmViYmxhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDk4MjI0MDAsImV4cCI6MjAyNTM5ODQwMH0.7dWz1aYK9viceV5BEr8f9cWIDPQq_9VWKW6u4YMfZGY';
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: false
+  },
+  global: {
+    headers: {
+      'X-Custom-Header': 'custom-value'
     }
   }
-);
+});
